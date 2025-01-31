@@ -1,0 +1,294 @@
+{
+	"info": {
+		"_postman_id": "45eb4ae0-c817-45f4-acf0-17c05d45448e",
+		"name": "Slate",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30804335"
+	},
+	"item": [
+		{
+			"name": "localhost:5000/auth/login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"school@slate.com\",\r\n  \"password\": \"123456\",\r\n  \"role\": \"School\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/auth/login",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:5000/auth/forgotPassword",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBhcmVudEBzbGF0ZS5jb20iLCJpYXQiOjE3MzgyNjM4NDMsImV4cCI6MTczODI2NDE0M30.I9cHjV8hBArUB45nCVTFMvtUQ0Cvd-ciW2xukNjzMwU",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"parent@slate.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/auth/forgotPassword",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"auth",
+						"forgotPassword"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:5000/auth/verifyOtp",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"parent@slate.com\",\r\n    \"otp\":\"XXXXXX\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/auth/verifyOtp",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"auth",
+						"verifyOtp"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:5000/auth/resetPassword",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "",
+						"description": "Paste the tempJwt from verifyOtp api",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"newPassword\":\"abc\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/auth/resetPassword",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"auth",
+						"resetPassword"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:5000/student/achievements/101",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6IlNjaG9vbCIsImxpbmtlZFN0dWRlbnRJZCI6bnVsbCwic2Nob29sTmFtZSI6IkFCQyBTY2hvb2wiLCJpYXQiOjE3MzgzMjI0OTIsImV4cCI6MTczODMyNjA5Mn0.sSpZbtRgnjU9fPL3afRYGK9bMamzmdVedmgIGABHdBQ",
+						"description": "Paste the jwt after login ",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:5000/student/achievements/101",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"student",
+						"achievements",
+						"101"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:5000/student/achievements/add/101",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "",
+						"description": "Paste the jwt after school login",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"achievement\":\"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/student/achievements/add/101",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"student",
+						"achievements",
+						"add",
+						"101"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:5000/student/achievements/update/1",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "",
+						"description": "Paste the jwt after school login",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"updatedAchievement\":\"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/student/achievements/update/1",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"student",
+						"achievements",
+						"update",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:5000/student/achievements/delete/1",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "",
+						"description": "Paste the jwt after school login",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:5000/student/achievements/delete/1",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"student",
+						"achievements",
+						"delete",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
