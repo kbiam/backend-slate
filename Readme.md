@@ -39,7 +39,6 @@
 - Role-based access control
 - Secure OTP-based password reset
 
-
 ## 🚀 Installation & Setup
 
 ### Prerequisites
@@ -62,42 +61,42 @@
 3. **Configure Environment**
    Create a `.env` file with the following variables:
    ```
-   host = localhost
-   user = your_username
-   password = your_password
-   database = SLATE
+   HOST=localhost
+   USER=your_username
+   PASSWORD=your_password
+   DATABASE=SLATE
    JWT_SECRET=your_secret_key
    EMAIL_USER=your_email
    EMAIL_PASS=your_email_password
    ```
 
 4. **Database Setup**
-   ```bash
+   ```sql
    CREATE TABLE users (
-  ID INT AUTO_INCREMENT PRIMARY KEY,
-  Name VARCHAR(255) NOT NULL,
-  Email VARCHAR(255) UNIQUE NOT NULL,
-  Password VARCHAR(255) NOT NULL,
-  Role ENUM('School', 'Parent', 'Student') NOT NULL,
-  Linked_Student_ID INT NULL -- For parents linking to students
-    );
+     ID INT AUTO_INCREMENT PRIMARY KEY,
+     Name VARCHAR(255) NOT NULL,
+     Email VARCHAR(255) UNIQUE NOT NULL,
+     Password VARCHAR(255) NOT NULL,
+     Role ENUM('School', 'Parent', 'Student') NOT NULL,
+     Linked_Student_ID INT NULL
+   );
 
-    CREATE TABLE achievements (
-  Achievement_ID INT AUTO_INCREMENT PRIMARY KEY,
-  Student_id INT NOT NULL ,
-  Name varchar(255) NOT NULL,
-  SchoolName VARCHAR(255) NOT NULL,
-  Achievements TEXT
-    );
+   CREATE TABLE achievements (
+     Achievement_ID INT AUTO_INCREMENT PRIMARY KEY,
+     Student_ID INT NOT NULL,
+     Name VARCHAR(255) NOT NULL,
+     SchoolName VARCHAR(255) NOT NULL,
+     Achievements TEXT
+   );
 
-    CREATE TABLE password_resets (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    email VARCHAR(255) NOT NULL,
-    token VARCHAR(255) NOT NULL,
-    expires_at DATETIME NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (email) REFERENCES users(Email) ON DELETE CASCADE
-    );
+   CREATE TABLE password_resets (
+     ID INT AUTO_INCREMENT PRIMARY KEY,
+     Email VARCHAR(255) NOT NULL,
+     Token VARCHAR(255) NOT NULL,
+     Expires_At DATETIME NOT NULL,
+     Created_At TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+     FOREIGN KEY (Email) REFERENCES users(Email) ON DELETE CASCADE
+   );
    ```
 
 5. **Start Application**
@@ -122,5 +121,3 @@ npm test
    - JWT tokens with short expiration
    - Role-based access control
    - Secure OTP generation and verification
-
- 
